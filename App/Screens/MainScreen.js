@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
+import ImagePicker from "react-native-image-crop-picker";
 import styles from "../Styles/styles";
+
 class MainScreen extends Component {
   render() {
     return (
@@ -23,7 +25,20 @@ class MainScreen extends Component {
         >
           <Text>This will be image View</Text>
         </View>
-        <Button style={{ flex: 1 }} title="Capture the moment" color="green" />
+        <Button
+          style={{ flex: 1 }}
+          title="Camera"
+          color="green"
+          onPress={() => {
+            ImagePicker.openCamera({
+              width: 300,
+              height: 400,
+              cropping: true
+            }).then(image => {
+              console.log(image);
+            });
+          }}
+        />
       </View>
     );
   }
