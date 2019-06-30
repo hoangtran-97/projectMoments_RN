@@ -29,7 +29,9 @@ class MainScreen extends Component {
           <Text>This will be image View</Text>
         </View>
         <CustomButton
-          buttonOnPress={this.openCamera()}
+          buttonOnPress={() => {
+            this.openCamera();
+          }}
           buttonText={"Camera"}
           buttonIconName="camera-retro"
         />
