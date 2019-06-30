@@ -2,8 +2,18 @@ import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
 import ImagePicker from "react-native-image-crop-picker";
 import styles from "../Styles/styles";
+import CustomButton from "../Components/CustomButton";
 
 class MainScreen extends Component {
+  openCamera = () => {
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: true
+    }).then(image => {
+      console.log(image);
+    });
+  };
   render() {
     return (
       <View
@@ -15,29 +25,13 @@ class MainScreen extends Component {
         <View style={styles.welcomeContainer}>
           <Text>Welcome to project Moments</Text>
         </View>
-        <View
-          style={{
-            alignItems: "center",
-            backgroundColor: "#4A4B4A",
-            flex: 3,
-            justifyContent: "center"
-          }}
-        >
+        <View style={styles.imageView}>
           <Text>This will be image View</Text>
         </View>
-        <Button
-          style={{ flex: 1 }}
-          title="Camera"
-          color="green"
-          onPress={() => {
-            ImagePicker.openCamera({
-              width: 300,
-              height: 400,
-              cropping: true
-            }).then(image => {
-              console.log(image);
-            });
-          }}
+        <CustomButton
+          buttonOnPress={this.openCamera()}
+          buttonText={"Camera"}
+          buttonIconName="camera-retro"
         />
       </View>
     );

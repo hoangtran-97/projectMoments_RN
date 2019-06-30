@@ -8,7 +8,7 @@ export default class App extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: "#F88F40" }}>
         <MainScreen />
       </SafeAreaView>
     );
