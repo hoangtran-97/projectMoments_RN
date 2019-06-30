@@ -18,7 +18,7 @@ class MainScreen extends Component {
         <View
           style={{
             alignItems: "center",
-            backgroundColor: "skyblue",
+            backgroundColor: "#4A4B4A",
             flex: 3,
             justifyContent: "center"
           }}

@@ -6,7 +6,7 @@ export default StyleSheet.create({
   welcomeContainer: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "green",
+    backgroundColor: "#F88F40",
     height: 50
   },
   buttonContainer: {
