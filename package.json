@@ -3,8 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "6": "react-native run-ios --simulator \"iPhone 6\"",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "X": "react-native run-ios --simulator \"iPhone X\"",
+    "IPAD": "react-native run-ios --simulator \"iPad Air\"",
+    "XSMAX": "react-native run-ios --simulator \"iPhone Xs Max\"",
+    "SHIT": "react-native run-android"
   },
   "dependencies": {
     "react": "16.8.3",
