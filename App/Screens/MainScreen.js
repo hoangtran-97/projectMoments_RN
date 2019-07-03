@@ -3,7 +3,7 @@ import { Text, View, Button } from "react-native";
 import ImagePicker from "react-native-image-crop-picker";
 import styles from "../Styles/styles";
 import CustomButton from "../Components/CustomButton";
-
+import ImageView from "../Components/ImageView";
 class MainScreen extends Component {
   openCamera = () => {
     ImagePicker.openCamera({
@@ -26,7 +26,7 @@ class MainScreen extends Component {
           <Text>Welcome to project Moments</Text>
         </View>
         <View style={styles.imageView}>
-          <Text>This will be image View</Text>
+          <ImageView />
         </View>
         <CustomButton
           buttonOnPress={() => {
