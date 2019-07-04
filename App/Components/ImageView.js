@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Text, View, Dimensions, Image } from "react-native";
+import { Text, View, Dimensions, Image, ProgressViewIOS } from "react-native";
 import Carousel from "react-native-snap-carousel";
+import colors from "../Styles/colors";
 const sliderWidth = Dimensions.get("window").width;
 const dataDummy = [
   {
@@ -11,9 +12,29 @@ const dataDummy = [
   {
     name:
       "https://1u0b5867gsn1ez16a1p2vcj1-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/grumpy-cat-no-1.jpg"
+  },
+  {
+    name:
+      "https://1u0b5867gsn1ez16a1p2vcj1-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/grumpy-cat-no-1.jpg"
+  },
+  {
+    name:
+      "https://1u0b5867gsn1ez16a1p2vcj1-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/grumpy-cat-no-1.jpg"
+  },
+  {
+    name:
+      "https://1u0b5867gsn1ez16a1p2vcj1-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/grumpy-cat-no-1.jpg"
   }
 ];
+
 class ImageView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      progress: 0
+    };
+  }
+
   render() {
     return (
       <View style={{ paddingVertical: 15 }}>
@@ -23,6 +44,16 @@ class ImageView extends Component {
           sliderWidth={sliderWidth}
           removeClippedSubviews
           layout="default"
+          onSnapToItem={index => {
+            if (index == 0) {
+              newProgress = index / dataDummy.length;
+            } else {
+              index++;
+              newProgress = index / dataDummy.length;
+            }
+
+            this.setState({ progress: newProgress });
+          }}
           renderItem={({ item }) => (
             <View
               style={{
@@ -41,8 +72,17 @@ class ImageView extends Component {
             </View>
           )}
         />
+        <View style={{ paddingHorizontal: 15 }}>
+          <ProgressViewIOS
+            progress={this.state.progress}
+            progressTintColor={colors.Orange}
+            trackTintColor={colors.LightOrange}
+            style={{ transform: [{ scaleX: 1.0 }, { scaleY: 4 }], height: 12 }}
+          />
+        </View>
       </View>
     );
   }
 }
+
 export default ImageView;
