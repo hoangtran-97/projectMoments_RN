@@ -37,5 +37,12 @@ export default StyleSheet.create({
     marginLeft: 4,
     fontSize: 18,
     color: colors.white
+  },
+  carouselView: {
+    //backgroundColor: "red",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 8
   }
 });

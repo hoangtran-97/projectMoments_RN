@@ -3,6 +3,7 @@ import { Text, View, Dimensions, Image, ProgressViewIOS } from "react-native";
 import Carousel from "react-native-snap-carousel";
 import colors from "../Styles/colors";
 import returnData from "../Data/imageData";
+import styles from "../Styles/styles";
 const sliderWidth = Dimensions.get("window").width;
 const data = returnData();
 console.log("data", data);
@@ -16,7 +17,7 @@ class ImageView extends Component {
 
   render() {
     return (
-      <View style={{ paddingVertical: 15 }}>
+      <View style={{ paddingTop: 2 }}>
         <Carousel
           data={data}
           itemWidth={sliderWidth - 30}
@@ -34,14 +35,16 @@ class ImageView extends Component {
             this.setState({ progress: newProgress });
           }}
           renderItem={({ item }) => (
-            <View
-              style={{
-                backgroundColor: "red",
-                height: "100%",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
+            <View style={styles.carouselView}>
+              <View
+                style={{
+                  width: "100%",
+                  alignItems: "center",
+                  backgroundColor: colors.LightOrange
+                }}
+              >
+                <Text>Test</Text>
+              </View>
               <Image
                 style={{ width: "100%", height: "100%" }}
                 source={{
