@@ -4,6 +4,7 @@ import Carousel from "react-native-snap-carousel";
 import colors from "../Styles/colors";
 import returnData from "../Data/imageData";
 import styles from "../Styles/styles";
+import moment from "moment";
 const sliderWidth = Dimensions.get("window").width;
 const data = returnData();
 console.log("data", data);
@@ -43,12 +44,12 @@ class ImageView extends Component {
                   backgroundColor: colors.LightOrange
                 }}
               >
-                <Text>Test</Text>
+                <Text>{moment(item.time).format("MMMM Do YYYY, HH:mm a")}</Text>
               </View>
               <Image
                 style={{ width: "100%", height: "100%" }}
                 source={{
-                  uri: item.name
+                  uri: item.link
                 }}
                 resizeMode="center"
               />

@@ -36,9 +36,6 @@ class MainScreen extends Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <View style={styles.welcomeContainer}>
-          <Text>{this.state.time}</Text>
-        </View>
         <View style={styles.imageView}>
           <ImageView />
         </View>
