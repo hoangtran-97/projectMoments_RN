@@ -6,24 +6,28 @@ const sliderWidth = Dimensions.get("window").width;
 const dataDummy = [
   {
     name:
-      "https://mondrian.mashable.com/2014%252F04%252F18%252F7d%252FAwkwardSeal.9c37e.jpg%252F1200x627.jpg?signature=nSTVebzRc9kH5MANu7QlKtbeVhM="
-  },
-  { name: "http://getwallpapers.com/wallpaper/full/2/3/f/545367.jpg" },
-  {
-    name:
-      "https://1u0b5867gsn1ez16a1p2vcj1-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/grumpy-cat-no-1.jpg"
+      "https://media.gettyimages.com/photos/travel-woman-arms-outstretched-by-the-sea-picture-id638898418?s=2048x2048"
   },
   {
     name:
-      "https://1u0b5867gsn1ez16a1p2vcj1-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/grumpy-cat-no-1.jpg"
+      "https://media1.tenor.com/images/ced3dc543f6db275e544f8d1fb3641e2/tenor.gif?itemid=9272787"
   },
   {
     name:
-      "https://1u0b5867gsn1ez16a1p2vcj1-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/grumpy-cat-no-1.jpg"
+      "https://media1.tenor.com/images/01981ee970ee9409bb031d76d93f3a01/tenor.gif?itemid=8474279"
+  },
+
+  {
+    name:
+      "https://media1.tenor.com/images/8f7882f186fd49c25cd05f470247fe09/tenor.gif?itemid=9272799"
   },
   {
     name:
-      "https://1u0b5867gsn1ez16a1p2vcj1-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/grumpy-cat-no-1.jpg"
+      "https://media1.tenor.com/images/452cea6cc5abcfbac66d1b62a18bacf5/tenor.gif?itemid=8474302"
+  },
+  {
+    name:
+      "https://media1.tenor.com/images/bdfecff3c30f96717f58ab477f544324/tenor.gif?itemid=8474276"
   }
 ];
 
@@ -68,6 +72,7 @@ class ImageView extends Component {
                 source={{
                   uri: item.name
                 }}
+                resizeMode="center"
               />
             </View>
           )}
