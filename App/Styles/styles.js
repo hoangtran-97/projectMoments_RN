@@ -17,5 +17,10 @@ export default StyleSheet.create({
     backgroundColor: "#4A4B4A",
     flex: 3,
     justifyContent: "center"
+  },
+  camButton: {
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });

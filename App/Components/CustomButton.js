@@ -5,11 +5,7 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 class CustomButton extends Component {
   render() {
     return (
-      <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={this.props.buttonOnPress}
-        style={this.props.style}
-      >
+      <TouchableOpacity activeOpacity={0.8} onPress={this.props.buttonOnPress}>
         <View style={styles.buttonStyle}>
           <FontAwesome5
             name={this.props.buttonIconName}

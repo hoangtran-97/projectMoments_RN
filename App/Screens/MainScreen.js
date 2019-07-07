@@ -3,8 +3,13 @@ import { Text, View, Button } from "react-native";
 import ImagePicker from "react-native-image-crop-picker";
 import styles from "../Styles/styles";
 import CustomButton from "../Components/CustomButton";
+import CamButtonAnimated from "../Components/CamButtonAnimated";
 import ImageView from "../Components/ImageView";
 class MainScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.onCamPresses = this.onCamPresses.bind(this);
+  }
   openCamera = () => {
     ImagePicker.openCamera({
       width: 300,
@@ -13,6 +18,9 @@ class MainScreen extends Component {
     }).then(image => {
       console.log(image);
     });
+  };
+  onCamPresses = async () => {
+    this.animation.play();
   };
   render() {
     return (
@@ -28,13 +36,17 @@ class MainScreen extends Component {
         <View style={styles.imageView}>
           <ImageView />
         </View>
-        <CustomButton
-          buttonOnPress={() => {
-            this.openCamera();
-          }}
-          buttonText={"Camera"}
-          buttonIconName="camera-retro"
-        />
+        <View style={styles.camButton}>
+          <CamButtonAnimated
+            buttonOnPress={() => {
+              this.openCamera();
+              this.onCamPresses();
+            }}
+            onCamPresses={animation => {
+              this.animation = animation;
+            }}
+          />
+        </View>
       </View>
     );
   }
