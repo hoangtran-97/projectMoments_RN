@@ -3,12 +3,23 @@ import { Text, View, Button } from "react-native";
 import ImagePicker from "react-native-image-crop-picker";
 import styles from "../Styles/styles";
 import CustomButton from "../Components/CustomButton";
+import moment from "moment";
 import CamButtonAnimated from "../Components/CamButtonAnimated";
 import ImageView from "../Components/ImageView";
 class MainScreen extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      time: 0
+    };
     this.onCamPresses = this.onCamPresses.bind(this);
+  }
+  async componentWillMount() {
+    d = new Date();
+    newTime = moment(d).format("MMMM Do YYYY, HH:mm a");
+    this.setState({
+      time: newTime
+    });
   }
   openCamera = () => {
     ImagePicker.openCamera({
@@ -24,14 +35,9 @@ class MainScreen extends Component {
   };
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "space-between"
-        }}
-      >
+      <View style={styles.mainContainer}>
         <View style={styles.welcomeContainer}>
-          <Text>Welcome to project Moments</Text>
+          <Text>{this.state.time}</Text>
         </View>
         <View style={styles.imageView}>
           <ImageView />

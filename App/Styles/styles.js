@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native";
+import colors from "./colors";
 export default StyleSheet.create({
   mainContainer: {
-    flexDirection: "column"
+    flex: 1,
+    justifyContent: "space-between"
   },
   welcomeContainer: {
     alignItems: "center",
@@ -22,5 +24,18 @@ export default StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center"
+  },
+  buttonStyle: {
+    width: "100%",
+    paddingVertical: 8,
+    flexDirection: "row",
+    backgroundColor: colors.LightOrange,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  textStyle: {
+    marginLeft: 4,
+    fontSize: 18,
+    color: colors.white
   }
 });

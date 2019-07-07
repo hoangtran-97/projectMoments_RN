@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import colors from "../Styles/colors";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import styles from "../Styles/styles";
 class CustomButton extends Component {
   render() {
     return (
@@ -18,19 +19,5 @@ class CustomButton extends Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  buttonStyle: {
-    width: "100%",
-    paddingVertical: 8,
-    flexDirection: "row",
-    backgroundColor: colors.LightOrange,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  textStyle: {
-    marginLeft: 4,
-    fontSize: 18,
-    color: colors.white
-  }
-});
+
 export default CustomButton;
