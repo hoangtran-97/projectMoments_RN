@@ -15,7 +15,28 @@ class ImageView extends Component {
       progress: 0
     };
   }
-
+  renderItem({ item }) {
+    return (
+      <View style={styles.carouselView}>
+        <View
+          style={{
+            width: "100%",
+            alignItems: "center",
+            backgroundColor: colors.LightOrange
+          }}
+        >
+          <Text>{moment(item.time).format("MMMM Do YYYY, HH:mm a")}</Text>
+        </View>
+        <Image
+          style={{ width: "100%", height: "100%" }}
+          source={{
+            uri: item.link
+          }}
+          resizeMode="center"
+        />
+      </View>
+    );
+  }
   render() {
     return (
       <View style={{ paddingTop: 2 }}>
@@ -35,26 +56,7 @@ class ImageView extends Component {
 
             this.setState({ progress: newProgress });
           }}
-          renderItem={({ item }) => (
-            <View style={styles.carouselView}>
-              <View
-                style={{
-                  width: "100%",
-                  alignItems: "center",
-                  backgroundColor: colors.LightOrange
-                }}
-              >
-                <Text>{moment(item.time).format("MMMM Do YYYY, HH:mm a")}</Text>
-              </View>
-              <Image
-                style={{ width: "100%", height: "100%" }}
-                source={{
-                  uri: item.link
-                }}
-                resizeMode="center"
-              />
-            </View>
-          )}
+          renderItem={this.renderItem}
         />
         <View style={{ paddingHorizontal: 15 }}>
           <ProgressViewIOS

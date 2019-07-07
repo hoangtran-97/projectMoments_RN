@@ -2,7 +2,8 @@ export default (returnData = () => {
   return [
     {
       link:
-        "https://media.gettyimages.com/photos/travel-woman-arms-outstretched-by-the-sea-picture-id638898418?s=2048x2048"
+        "https://media.gettyimages.com/photos/travel-woman-arms-outstretched-by-the-sea-picture-id638898418?s=2048x2048",
+      time: "Januaty 21 September"
     },
     {
       link:
