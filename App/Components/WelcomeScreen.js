@@ -8,6 +8,7 @@ import {
   TextInput
 } from "react-native";
 import colors from "../Styles/colors";
+import LottieView from "lottie-react-native";
 const timeout = ms => new Promise(resolve => setTimeout(resolve, ms));
 class WelcomeScreen extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class WelcomeScreen extends Component {
           <View>
             <Text>Welcome to Moments</Text>
           </View>
-          <View style={{ alignItems: "center" }}>
+          <View>
             <TextInput
               textAlign={"center"}
               placeholder="Please enter your name"
@@ -54,12 +55,33 @@ class WelcomeScreen extends Component {
               }}
             />
           </View>
-          {this.state.note.length != 0 ? (
-            <View>
-              <Text>Hello {this.state.note}</Text>
-            </View>
-          ) : null}
-          {this.state.showAnimated ? <Text>Animated</Text> : null}
+          <View style={{ height: 40 }}>
+            {this.state.note.length != 0 ? (
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40
+                }}
+              >
+                <Text style={{ marginVertical: 40 }}>
+                  Hello {this.state.note}
+                </Text>
+                {this.state.showAnimated ? (
+                  <LottieView
+                    style={{ width: 180, height: 180 }}
+                    source={require("../assets/present.json")}
+                    autoPlay
+                    loop
+                  />
+                ) : (
+                  <View style={{ height: 180 }} />
+                )}
+              </View>
+            ) : (
+              <View style={{ height: 40 }} />
+            )}
+          </View>
         </SafeAreaView>
       </Modal>
     );
