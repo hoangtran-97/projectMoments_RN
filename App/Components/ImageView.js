@@ -12,21 +12,13 @@ class ImageView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      progress: 0
+      progress: 0,
+      time: ""
     };
   }
   renderItem({ item }) {
     return (
       <View style={styles.carouselView}>
-        <View
-          style={{
-            width: "100%",
-            alignItems: "center",
-            backgroundColor: colors.LightOrange
-          }}
-        >
-          <Text>{moment(item.time).format("MMMM Do YYYY, HH:mm a")}</Text>
-        </View>
         <Image
           style={{ width: "100%", height: "100%" }}
           source={{
@@ -40,6 +32,18 @@ class ImageView extends Component {
   render() {
     return (
       <View style={{ paddingTop: 2 }}>
+        <View
+          style={{
+            width: "100%",
+            alignItems: "center",
+            marginLeft: 15,
+            backgroundColor: colors.LightOrange
+          }}
+        >
+          <Text style={{}}>
+            {moment(this.state.time).format("MMMM Do YYYY, HH:mm a")}
+          </Text>
+        </View>
         <Carousel
           data={data}
           itemWidth={sliderWidth - 30}
@@ -54,7 +58,7 @@ class ImageView extends Component {
               newProgress = index / data.length;
             }
 
-            this.setState({ progress: newProgress });
+            this.setState({ progress: newProgress, time: data.time });
           }}
           renderItem={this.renderItem}
         />
