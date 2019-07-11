@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, CameraRoll } from "react-native";
 import ImagePicker from "react-native-image-crop-picker";
 import styles from "../Styles/styles";
 import CustomButton from "../Components/CustomButton";
@@ -27,7 +27,7 @@ class MainScreen extends Component {
       height: 400,
       cropping: true
     }).then(image => {
-      console.log(image);
+      CameraRoll.saveToCameraRoll(image.path);
     });
   };
   onCamPresses = async () => {

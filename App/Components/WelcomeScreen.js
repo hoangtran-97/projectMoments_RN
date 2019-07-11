@@ -22,11 +22,11 @@ class WelcomeScreen extends Component {
     };
   }
   onChangeNote = async note => {
-    await timeout(3000);
+    await timeout(1000);
     this.setState({
       note: note
     });
-    await timeout(3000);
+    await timeout(1000);
     this.setState({
       showAnimated: true
     });
