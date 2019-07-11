@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import { Text, View, Dimensions, Image, ProgressViewIOS } from "react-native";
 import Carousel from "react-native-snap-carousel";
 import colors from "../Styles/colors";
-import returnData from "../Data/imageData";
 import styles from "../Styles/styles";
 import moment from "moment";
 const sliderWidth = Dimensions.get("window").width;
-const data = returnData();
-console.log("data", data);
 class ImageView extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +12,7 @@ class ImageView extends Component {
       progress: 0,
       time: ""
     };
+    console.log("_____TEST____", this.props.dataFromMain);
   }
   renderItem({ item }) {
     return (
@@ -45,20 +43,20 @@ class ImageView extends Component {
           </Text>
         </View>
         <Carousel
-          data={data}
+          data={this.props.dataFromMain}
           itemWidth={sliderWidth - 30}
           sliderWidth={sliderWidth}
           removeClippedSubviews
           layout="default"
           onSnapToItem={index => {
             if (index == 0) {
-              newProgress = index / data.length;
+              newProgress = index / this.props.dataFromMain.length;
             } else {
               index++;
-              newProgress = index / data.length;
+              newProgress = index / this.props.dataFromMain.length;
             }
-
-            this.setState({ progress: newProgress, time: data.time });
+            //Add time setstate here
+            this.setState({ progress: newProgress });
           }}
           renderItem={this.renderItem}
         />
