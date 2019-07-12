@@ -6,13 +6,19 @@ import CustomButton from "../Components/CustomButton";
 import moment from "moment";
 import CamButtonAnimated from "../Components/CamButtonAnimated";
 import ImageView from "../Components/ImageView";
-
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as updateIndexAction from "../Actions/updateIndexAction";
 class MainScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       time: 0,
       data: [
+        {
+          link:
+            "https://www.fodors.com/wp-content/uploads/2016/04/HelsinkiWeekend-hero.jpg"
+        },
         {
           link:
             "https://media1.tenor.com/images/452cea6cc5abcfbac66d1b62a18bacf5/tenor.gif?itemid=8474302"
@@ -36,6 +42,14 @@ class MainScreen extends Component {
     ImagePicker.openCamera({}).then(image => {
       CameraRoll.saveToCameraRoll(image.path);
       this.setState({ data: [...this.state.data, { link: image.path }] });
+      index = this.props.index;
+      if (index == 0) {
+        newProgress = this.props.index / this.state.data.length;
+      } else {
+        index++;
+        newProgress = this.props.index / this.state.data.length;
+      }
+      this.props.actions.updateProgress(newProgress);
     });
   };
   onCamPresses = async () => {
@@ -63,5 +77,18 @@ class MainScreen extends Component {
     );
   }
 }
-
-export default MainScreen;
+function mapStateToProps(state) {
+  return {
+    progress: state.updateIndexReducer.progress,
+    index: state.updateIndexReducer.currentIndex
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Object.assign({}, updateIndexAction), dispatch)
+  };
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainScreen);

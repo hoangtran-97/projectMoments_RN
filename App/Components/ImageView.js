@@ -4,6 +4,9 @@ import Carousel from "react-native-snap-carousel";
 import colors from "../Styles/colors";
 import styles from "../Styles/styles";
 import moment from "moment";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as updateIndexAction from "../Actions/updateIndexAction";
 const sliderWidth = Dimensions.get("window").width;
 class ImageView extends Component {
   constructor(props) {
@@ -32,6 +35,7 @@ class ImageView extends Component {
     );
   }
   updateProgress(index) {
+    this.props.actions.updateIndex(index);
     if (index == 0) {
       newProgress = index / this.props.dataFromMain.length;
     } else {
@@ -39,7 +43,9 @@ class ImageView extends Component {
       newProgress = index / this.props.dataFromMain.length;
     }
     //Add time setstate here
-    this.setState({ progress: newProgress });
+    this.props.actions.updateProgress(newProgress);
+    //this.setState({ progress: newProgress });
+    console.log("____INDEX____", this.props.index);
   }
   render() {
     return (
@@ -67,7 +73,7 @@ class ImageView extends Component {
         />
         <View style={{ paddingHorizontal: 15 }}>
           <ProgressViewIOS
-            progress={this.state.progress}
+            progress={this.props.progress}
             progressTintColor={colors.Orange}
             trackTintColor={colors.LightOrange}
             style={{ transform: [{ scaleX: 1.0 }, { scaleY: 4 }], height: 12 }}
@@ -78,4 +84,18 @@ class ImageView extends Component {
   }
 }
 
-export default ImageView;
+function mapStateToProps(state) {
+  return {
+    progress: state.updateIndexReducer.progress,
+    index: state.updateIndexReducer.currentIndex
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Object.assign({}, updateIndexAction), dispatch)
+  };
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ImageView);
