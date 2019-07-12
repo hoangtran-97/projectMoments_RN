@@ -8,7 +8,7 @@ export default StyleSheet.create({
   welcomeContainer: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#F88F40",
+    backgroundColor: colors.Orange,
     height: 50
   },
   buttonContainer: {
@@ -16,7 +16,7 @@ export default StyleSheet.create({
   },
   imageView: {
     alignItems: "center",
-    backgroundColor: "#4A4B4A",
+    backgroundColor: colors.Orange,
     flex: 3,
     justifyContent: "center"
   },
@@ -42,7 +42,6 @@ export default StyleSheet.create({
     //backgroundColor: "red",
     height: "100%",
     justifyContent: "center",
-    alignItems: "center",
-    paddingTop: 8
+    alignItems: "center"
   }
 });

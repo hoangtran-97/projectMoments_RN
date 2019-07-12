@@ -22,9 +22,7 @@ class ImageView extends Component {
         <Image
           style={{
             width: "100%",
-            height: "100%",
-            borderRadius: 40,
-            borderWidth: 1
+            height: "100%"
           }}
           source={{
             uri: item.link
@@ -50,33 +48,21 @@ class ImageView extends Component {
   render() {
     return (
       <View style={{ paddingTop: 2 }}>
-        <View
-          style={{
-            width: "100%",
-            alignItems: "center",
-            marginLeft: 15,
-            backgroundColor: colors.LightOrange
-          }}
-        >
-          <Text style={{}}>
-            {moment(this.state.time).format("MMMM Do YYYY, HH:mm a")}
-          </Text>
-        </View>
         <Carousel
           data={this.props.dataFromMain}
-          itemWidth={sliderWidth - 30}
+          itemWidth={sliderWidth}
           sliderWidth={sliderWidth}
           removeClippedSubviews
           layout="default"
           onSnapToItem={index => this.updateProgress(index)}
           renderItem={this.renderItem}
         />
-        <View style={{ paddingHorizontal: 15 }}>
+        <View>
           <ProgressViewIOS
             progress={this.props.progress}
-            progressTintColor={colors.Orange}
+            progressTintColor={colors.CameraBlack}
             trackTintColor={colors.LightOrange}
-            style={{ transform: [{ scaleX: 1.0 }, { scaleY: 4 }], height: 12 }}
+            style={{ transform: [{ scaleX: 1.0 }, { scaleY: 4 }], height: 8 }}
           />
         </View>
       </View>

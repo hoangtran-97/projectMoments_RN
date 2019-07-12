@@ -8,6 +8,7 @@
     "test": "jest",
     "X": "react-native run-ios --simulator \"iPhone X\"",
     "IPAD": "react-native run-ios --simulator \"iPad Air\"",
+    "7PLUS": "react-native run-ios --simulator \"iPhone 7 Plus\"",
     "XSMAX": "react-native run-ios --simulator \"iPhone Xs Max\"",
     "SHIT": "react-native run-android"
   },
