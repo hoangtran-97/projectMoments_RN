@@ -25,7 +25,7 @@ class MainScreen extends Component {
     };
     this.onCamPresses = this.onCamPresses.bind(this);
   }
-  async componentDidlMount() {
+  async componentWillMount() {
     d = new Date();
     newTime = moment(d).format("MMMM Do YYYY, HH:mm a");
     this.setState({
