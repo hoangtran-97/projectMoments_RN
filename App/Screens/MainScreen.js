@@ -17,6 +17,10 @@ class MainScreen extends Component {
       data: [
         {
           link:
+            "https://www.fodors.com/wp-content/uploads/2016/04/HelsinkiWeekend-hero.jpg"
+        },
+        {
+          link:
             "https://media1.tenor.com/images/452cea6cc5abcfbac66d1b62a18bacf5/tenor.gif?itemid=8474302"
         },
         {
