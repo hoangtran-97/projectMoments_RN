@@ -34,11 +34,11 @@ class WelcomeScreen extends Component {
   render() {
     return (
       <Modal
-        animationType="slide"
+        animationType="fade"
         transparent={false}
         visible={this.state.showWelcomeScreen}
       >
-        <ScrollView scollEnabled={false}>
+        <ScrollView scrollEnabled={false}>
           <View
             style={{
               justifyContent: "center",
@@ -47,7 +47,9 @@ class WelcomeScreen extends Component {
               backgroundColor: colors.Orange
             }}
           >
-            <Text>Welcome to Moments</Text>
+            <Text style={{ fontWeight: "700", fontSize: 16 }}>
+              Welcome to Moments
+            </Text>
             <TextInput
               textAlign={"center"}
               placeholder="Please enter your name"
@@ -56,7 +58,8 @@ class WelcomeScreen extends Component {
               onChangeText={note => this.onChangeNote(note)}
               style={{
                 height: 80,
-                width: 180
+                width: 180,
+                fontStyle: "italic"
               }}
             />
 
@@ -72,12 +75,12 @@ class WelcomeScreen extends Component {
                   <Text style={{ marginVertical: 40 }}>
                     Hello {this.state.note}
                   </Text>
+                  <Text>please click </Text>
                   {this.state.showAnimated ? (
                     <TouchableOpacity
                       style={{ width: 180, height: 180 }}
                       onPress={() => {
                         this.setState({ showWelcomeScreen: false });
-                        console.log("____STATE___", this.state);
                       }}
                     >
                       <LottieView

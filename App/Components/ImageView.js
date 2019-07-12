@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Text, View, Dimensions, Image, ProgressViewIOS } from "react-native";
+import {
+  Text,
+  View,
+  Dimensions,
+  Image,
+  ProgressViewIOS,
+  ImageBackground
+} from "react-native";
 import Carousel from "react-native-snap-carousel";
 import colors from "../Styles/colors";
 import styles from "../Styles/styles";
@@ -19,7 +26,7 @@ class ImageView extends Component {
   renderItem({ item }) {
     return (
       <View style={styles.carouselView}>
-        <Image
+        <ImageBackground
           style={{
             width: "100%",
             height: "100%"
@@ -28,7 +35,20 @@ class ImageView extends Component {
             uri: item.link
           }}
           resizeMode="cover"
-        />
+        >
+          {item.time ? (
+            <View
+              style={{
+                backgroundColor: colors.LightOrange,
+                width: "45%",
+                marginLeft: 10,
+                marginTop: 5
+              }}
+            >
+              <Text>{item.time}</Text>
+            </View>
+          ) : null}
+        </ImageBackground>
       </View>
     );
   }

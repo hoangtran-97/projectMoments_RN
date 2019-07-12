@@ -31,17 +31,15 @@ class MainScreen extends Component {
     };
     this.onCamPresses = this.onCamPresses.bind(this);
   }
-  async componentWillMount() {
-    d = new Date();
-    newTime = moment(d).format("MMMM Do YYYY, HH:mm a");
-    this.setState({
-      time: newTime
-    });
-  }
+  async componentWillMount() {}
   openCamera = () => {
     ImagePicker.openCamera({}).then(image => {
       CameraRoll.saveToCameraRoll(image.path);
-      this.setState({ data: [...this.state.data, { link: image.path }] });
+      d = new Date();
+      newTime = moment(d).format("MMMM Do YYYY, HH:mm a");
+      this.setState({
+        data: [...this.state.data, { link: image.path, time: newTime }]
+      });
       index = this.props.index;
       if (index == 0) {
         newProgress = this.props.index / this.state.data.length;
