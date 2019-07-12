@@ -35,6 +35,7 @@ class ImageView extends Component {
     );
   }
   updateProgress(index) {
+    this.props.actions.updateIndex(index);
     if (index == 0) {
       newProgress = index / this.props.dataFromMain.length;
     } else {
@@ -42,9 +43,9 @@ class ImageView extends Component {
       newProgress = index / this.props.dataFromMain.length;
     }
     //Add time setstate here
-    this.props.actions.updateIndex(newProgress);
+    this.props.actions.updateProgress(newProgress);
     //this.setState({ progress: newProgress });
-    console.log("____STATE____", this.props.index);
+    console.log("____INDEX____", this.props.index);
   }
   render() {
     return (
@@ -72,7 +73,7 @@ class ImageView extends Component {
         />
         <View style={{ paddingHorizontal: 15 }}>
           <ProgressViewIOS
-            progress={this.props.index}
+            progress={this.props.progress}
             progressTintColor={colors.Orange}
             trackTintColor={colors.LightOrange}
             style={{ transform: [{ scaleX: 1.0 }, { scaleY: 4 }], height: 12 }}
@@ -85,7 +86,8 @@ class ImageView extends Component {
 
 function mapStateToProps(state) {
   return {
-    index: state.updateIndexReducer.index
+    progress: state.updateIndexReducer.progress,
+    index: state.updateIndexReducer.currentIndex
   };
 }
 function mapDispatchToProps(dispatch) {
