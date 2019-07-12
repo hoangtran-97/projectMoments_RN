@@ -82,7 +82,7 @@ class WelcomeScreen extends Component {
                     >
                       <LottieView
                         style={{ width: 180, height: 180 }}
-                        source={require("../assets/present_open.json")}
+                        source={require("../Assets/present_open.json")}
                         autoPlay
                         loop
                       />
