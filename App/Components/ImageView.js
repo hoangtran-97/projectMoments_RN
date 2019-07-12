@@ -12,20 +12,34 @@ class ImageView extends Component {
       progress: 0,
       time: ""
     };
-    console.log("_____TEST____", this.props.dataFromMain);
   }
   renderItem({ item }) {
     return (
       <View style={styles.carouselView}>
         <Image
-          style={{ width: "100%", height: "100%" }}
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: 40,
+            borderWidth: 1
+          }}
           source={{
             uri: item.link
           }}
-          resizeMode="center"
+          resizeMode="cover"
         />
       </View>
     );
+  }
+  updateProgress(index) {
+    if (index == 0) {
+      newProgress = index / this.props.dataFromMain.length;
+    } else {
+      index++;
+      newProgress = index / this.props.dataFromMain.length;
+    }
+    //Add time setstate here
+    this.setState({ progress: newProgress });
   }
   render() {
     return (
@@ -48,16 +62,7 @@ class ImageView extends Component {
           sliderWidth={sliderWidth}
           removeClippedSubviews
           layout="default"
-          onSnapToItem={index => {
-            if (index == 0) {
-              newProgress = index / this.props.dataFromMain.length;
-            } else {
-              index++;
-              newProgress = index / this.props.dataFromMain.length;
-            }
-            //Add time setstate here
-            this.setState({ progress: newProgress });
-          }}
+          onSnapToItem={index => this.updateProgress(index)}
           renderItem={this.renderItem}
         />
         <View style={{ paddingHorizontal: 15 }}>
