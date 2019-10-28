@@ -1,5 +1,5 @@
 # projectMoments_RN
-## My First ever completed personal programming project. 
+## My first ever completed personal programming project. 
 Checkout at branch develop/feature to see the project before it got redesigned. 
 <br />
 Checkout at branch Veoo1607 to see the final(it's doable for now) product and the new redesigned UI. 
