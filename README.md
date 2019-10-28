@@ -18,4 +18,4 @@ There are two simple functions:
 <br />
 Screenshots:
 <br />
-![](Images/Welcome.png)
+ ![alt test](Images/Welcome.png)
