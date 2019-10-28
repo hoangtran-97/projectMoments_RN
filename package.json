@@ -6,7 +6,7 @@
     "6": "react-native run-ios --simulator \"iPhone 6\"",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "X": "react-native run-ios --simulator \"iPhone X\"",
+    "X": "react-native run-ios --simulator \"iPhone 11\"",
     "IPAD": "react-native run-ios --simulator \"iPad Air\"",
     "7PLUS": "react-native run-ios --simulator \"iPhone 7 Plus\"",
     "XSMAX": "react-native run-ios --simulator \"iPhone Xs Max\"",

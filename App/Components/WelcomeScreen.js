@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import colors from "../Styles/colors";
 import LottieView from "lottie-react-native";
-
+import SplashScreen from "react-native-splash-screen";
 const timeout = ms => new Promise(resolve => setTimeout(resolve, ms));
 class WelcomeScreen extends Component {
   constructor(props) {
@@ -21,15 +21,24 @@ class WelcomeScreen extends Component {
       showWelcomeScreen: true
     };
   }
+  async componentDidMount() {
+    await timeout(2000);
+    SplashScreen.hide();
+  }
   onChangeNote = async note => {
-    await timeout(1000);
+    await timeout(3000);
     this.setState({
       note: note
     });
-    await timeout(1000);
+    await timeout(3000);
     this.setState({
       showAnimated: true
     });
+  };
+  onPresentPressed = async () => {
+    this.animation.play();
+    await timeout(3000);
+    this.setState({ showWelcomeScreen: false });
   };
   render() {
     return (
@@ -52,7 +61,7 @@ class WelcomeScreen extends Component {
             </Text>
             <TextInput
               textAlign={"center"}
-              placeholder="Please enter your name"
+              placeholder="Just put 'Veoo' here hon"
               placeholderTextColor={colors.CameraBlack}
               numberOfLines={1}
               onChangeText={note => this.onChangeNote(note)}
@@ -72,22 +81,24 @@ class WelcomeScreen extends Component {
                     marginTop: 40
                   }}
                 >
-                  <Text style={{ marginVertical: 40 }}>
-                    Hello {this.state.note}
+                  <Text style={{ marginVertical: 40 }}>Heyyyy Honnnn!</Text>
+                  <Text style={{ marginHorizontal: 40 }}>
+                    Remember last year when you asked can i make an app for you?
+                    Well this is it! Press on your present hon!
                   </Text>
-                  <Text>please click </Text>
                   {this.state.showAnimated ? (
                     <TouchableOpacity
                       style={{ width: 180, height: 180 }}
                       onPress={() => {
-                        this.setState({ showWelcomeScreen: false });
+                        this.onPresentPressed();
                       }}
                     >
                       <LottieView
                         style={{ width: 180, height: 180 }}
                         source={require("../Assets/present_open.json")}
-                        autoPlay
-                        loop
+                        ref={animation => {
+                          this.animation = animation;
+                        }}
                       />
                     </TouchableOpacity>
                   ) : (

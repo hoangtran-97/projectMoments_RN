@@ -34,18 +34,19 @@ class ImageView extends Component {
           source={{
             uri: item.link
           }}
-          resizeMode="cover"
+          resizeMode="center"
         >
           {item.time ? (
             <View
               style={{
-                backgroundColor: colors.LightOrange,
-                width: "45%",
                 marginLeft: 10,
-                marginTop: 5
+                marginTop: 5,
+                alignSelf: "flex-start"
               }}
             >
-              <Text>{item.time}</Text>
+              <Text style={{ backgroundColor: colors.LightOrange }}>
+                {item.time}
+              </Text>
             </View>
           ) : null}
         </ImageBackground>
