@@ -17,4 +17,5 @@ There are two simple functions:
 - [X] Horizontal carousel of picture and ordered by dates
 <br />
 Screenshots:
-![Image of Yaktocat](https://github.com/hoangtran-97/projectMoments_RN/blob/master/Images/Screen%20Shot%202019-10-28%20at%2010.50.09.png)
+<br />
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
