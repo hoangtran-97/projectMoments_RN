@@ -18,4 +18,4 @@ There are two simple functions:
 <br />
 Screenshots:
 <br />
-[[https://github.com/hoangtran-97/projectMoments_RN/blob/master/Images/Screen%20Shot%202019-10-28%20at%2010.50.09.png]]
+![](Images/Screen%20Shot%202019-10-28%20at%2010.50.09.png)
