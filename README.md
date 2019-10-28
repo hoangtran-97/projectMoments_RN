@@ -18,4 +18,4 @@ There are two simple functions:
 <br />
 Screenshots:
 <br />
-![](Images/Screen%20Shot%202019-10-28%20at%2010.50.09.png)
+![](Images/Welcome.png)
