@@ -15,3 +15,6 @@ I got to play around with a lot of React Native common and uncommon concepts:
 There are two simple functions:
 - [X] Quick camera snap 
 - [X] Horizontal carousel of picture and ordered by dates
+<br />
+Screenshots:
+![Image of Yaktocat](https://github.com/hoangtran-97/projectMoments_RN/blob/master/Images/Screen%20Shot%202019-10-28%20at%2010.50.09.png)
