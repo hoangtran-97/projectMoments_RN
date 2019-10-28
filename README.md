@@ -12,10 +12,9 @@ I got to play around with a lot of React Native common and uncommon concepts:
 - Animation with Lottie 
 - Swipe carousel 
 - Moment.js
-<br />
 ## Lesson learned:
 Always do prototyping before coding, I wasted a dozen hours just because I constantly change the UI design. 
-## The idea is to have an application to save the memorable moments, and the carousel list is the timeline (and yes this is a gift to my fd).
+## The idea is to have an application to save the memorable moments, and the carousel list is the timeline (and yes this is a gift to my gf).
 There are two simple functions:
 - [X] Quick camera snap 
 - [X] Horizontal carousel of picture and ordered by dates
