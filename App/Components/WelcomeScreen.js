@@ -95,19 +95,19 @@ class WelcomeScreen extends Component {
                     >
                       <LottieView
                         style={{ width: 180, height: 180 }}
-                        source={require("../Assets/present_open.json")}
+                        source={require("../assets/present_open.json")}
                         ref={animation => {
                           this.animation = animation;
                         }}
                       />
                     </TouchableOpacity>
                   ) : (
-                    <View style={{ height: 180 }} />
-                  )}
+                      <View style={{ height: 180 }} />
+                    )}
                 </View>
               ) : (
-                <View style={{ height: 40 }} />
-              )}
+                  <View style={{ height: 40 }} />
+                )}
             </View>
           </View>
         </ScrollView>

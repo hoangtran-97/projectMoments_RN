@@ -8,7 +8,7 @@ class CamButtonAnimated extends Component {
       <TouchableOpacity activeOpacity={0.8} onPress={this.props.buttonOnPress}>
         <LottieView
           style={{ width: 100, height: 100 }}
-          source={require("../Assets/cam_shot1.json")}
+          source={require("../assets/cam_shot1.json")}
           ref={this.props.onCamPresses}
         />
       </TouchableOpacity>
