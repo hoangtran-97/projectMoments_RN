@@ -1,21 +1,18 @@
-import React, { Component } from "react";
-import { SafeAreaView, ScrollView, Text } from "react-native";
-import MainScreen from "./App/Screens/MainScreen";
+import React, { useEffect } from "react";
+import { SafeAreaView } from "react-native";
+import SplashScreen from "react-native-splash-screen";
+import MainScreen from "./src/screens/MainScreen";
+import styles from "./src/styles/globalStyles";
 
-import WelcomeScreen from "./App/Components/WelcomeScreen";
-import { createStore, combineReducers } from "redux";
-import { Provider } from "react-redux";
-import allReducers from "./App/Reducers/index";
-const store = createStore(allReducers);
-export default class App extends Component {
-  render() {
+const App = () => {
+    console.disableYellowBox = true;
+    useEffect(() => {
+        SplashScreen.hide();
+    });
     return (
-      <Provider store={store}>
-        <SafeAreaView style={{ flex: 1, backgroundColor: "#F88F40" }}>
-          <WelcomeScreen />
-          <MainScreen />
+        <SafeAreaView style={styles.appContainer}>
+            <MainScreen />
         </SafeAreaView>
-      </Provider>
     );
-  }
-}
+};
+export default App;
