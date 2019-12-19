@@ -31,6 +31,10 @@ target 'projectMoments' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   # Pods for projectMoments
+  # Firebase core dependency
+  pod 'Firebase/Core'
+  # Firebase storage dependency
+  pod 'Firebase/Storage', '~> 5.15.0'
 
   target 'projectMomentsTests' do
     inherit! :search_paths
