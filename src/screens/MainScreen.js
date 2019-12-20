@@ -8,33 +8,35 @@ import ImagePicker from "react-native-image-crop-picker";
 import ImageView from "../components/ImageView";
 
 const MainScreen = () => {
-    useEffect(() => {
-        getData();
-    }, []);
     const [imageData, setImageData] = useState([]);
     const [progress, setProgress] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
+    useEffect(() => {
+        getData();
+    }, []);
+    useEffect(() => {
+        storeData();
+    }, [imageData]);
     const updateProgress = (index) => {
         index === 0 ? (
             setProgress(index / imageData.length)
         ) : (newIndex = index + 1, setProgress(newIndex / imageData.length));
         setCurrentIndex(index);
+        storeData();
     };
     const clearAsyncStorage = async () => {
         AsyncStorage.clear();
     };
 
     const openCamera = () => {
-        ImagePicker.openCamera({}).then(async (image) => {
-            console.log(image);
+        ImagePicker.openCamera({}).then((image) => {
             CameraRoll.saveToCameraRoll(image.path);
             d = new Date();
             newTime = moment(d).format("MMMM Do YYYY, HH:mm a");
-            await setImageData(
+            setImageData(
                 [...imageData, { link: image.path, time: newTime }]
             );
             imageData.length === 0 ? null : updateProgress(currentIndex / imageData.length);
-            storeData();
         }).catch((e) => {
             alert(e);
         });
