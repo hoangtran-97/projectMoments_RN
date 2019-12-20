@@ -22,7 +22,6 @@ const MainScreen = () => {
     };
     const clearAsyncStorage = async () => {
         AsyncStorage.clear();
-        console.log("cleared");
     };
 
     const openCamera = () => {
@@ -34,7 +33,7 @@ const MainScreen = () => {
             await setImageData(
                 [...imageData, { link: image.path, time: newTime }]
             );
-            currentIndex === 0 ? null : updateProgress(currentIndex - 1);
+            updateProgress(currentIndex);
             storeData();
         }).catch((e) => {
             alert(e);
@@ -55,7 +54,6 @@ const MainScreen = () => {
     const storeData = async () => {
         try {
             await AsyncStorage.setItem("imageData", JSON.stringify(imageData));
-            console.log("stored", imageData);
         } catch (error) {
             console.log(error);
         }
