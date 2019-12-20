@@ -13,6 +13,7 @@
     "SHIT": "react-native run-android"
   },
   "dependencies": {
+    "@react-native-community/art": "^1.1.2",
     "eslint-plugin-react-hooks": "^1.7.0",
     "lottie-react-native": "^2.6.1",
     "moment": "^2.24.0",
@@ -20,6 +21,7 @@
     "react-native": "0.59.9",
     "react-native-firebase": "^5.2.0",
     "react-native-image-crop-picker": "^0.24.1",
+    "react-native-progress": "^4.0.3",
     "react-native-snap-carousel": "^3.8.0",
     "react-native-splash-screen": "^3.2.0",
     "react-native-vector-icons": "^6.6.0",

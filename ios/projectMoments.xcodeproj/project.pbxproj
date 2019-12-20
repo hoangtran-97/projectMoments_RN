@@ -33,6 +33,7 @@
 		4F073B0822CF4F4400B31B9C /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F073AFC22CF4F3500B31B9C /* Lottie.framework */; };
 		4F073B0922CF4F4400B31B9C /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F073AFC22CF4F3500B31B9C /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F10868E23AB847800C22EEF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F10865F23AB847800C22EEF /* GoogleService-Info.plist */; };
+		4F50876523ACC61F00CC2033 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F50873323ACC60E00CC2033 /* libART.a */; };
 		4F9352FE22CAF778000403C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F9352FD22CAF778000403C3 /* Images.xcassets */; };
 		4FA6755722D7167A00067B62 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA6753322D7165E00067B62 /* libRCTCameraRoll.a */; };
 		4FCD2BA122C8B2DE007834F6 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCD2BA022C8B2DE007834F6 /* RSKImageCropper.framework */; };
@@ -307,6 +308,20 @@
 			remoteGlobalIDString = 62CA59B71E3C173B002D7188;
 			remoteInfo = Lottie_iOS;
 		};
+		4F50873223ACC60E00CC2033 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F50872D23ACC60E00CC2033 /* ART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
+			remoteInfo = ART;
+		};
+		4F50873423ACC60E00CC2033 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F50872D23ACC60E00CC2033 /* ART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 323A12871E5F266B004975B8;
+			remoteInfo = "ART-tvOS";
+		};
 		4FA6753222D7165E00067B62 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4FA6752422D7165E00067B62 /* RCTCameraRoll.xcodeproj */;
@@ -458,6 +473,7 @@
 		3D4CF88FC6F84A0D9A6D2319 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		4CDA339AD6EB4F278EC0519C /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		4F10865F23AB847800C22EEF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4F50872D23ACC60E00CC2033 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/@react-native-community/art/ios/ART.xcodeproj"; sourceTree = "<group>"; };
 		4F9352FD22CAF778000403C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = projectMoments/Images.xcassets; sourceTree = "<group>"; };
 		4FA6752422D7165E00067B62 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		4FCD2BA022C8B2DE007834F6 /* RSKImageCropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RSKImageCropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -513,6 +529,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F50876523ACC61F00CC2033 /* libART.a in Frameworks */,
 				4FA6755722D7167A00067B62 /* libRCTCameraRoll.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				4FCD2BA122C8B2DE007834F6 /* RSKImageCropper.framework in Frameworks */,
@@ -703,6 +720,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4F50872E23ACC60E00CC2033 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F50873323ACC60E00CC2033 /* libART.a */,
+				4F50873523ACC60E00CC2033 /* libART-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		4FA6752522D7165E00067B62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,6 +829,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4F50872D23ACC60E00CC2033 /* ART.xcodeproj */,
 				4FA6752422D7165E00067B62 /* RCTCameraRoll.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -951,6 +978,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 4F50872E23ACC60E00CC2033 /* Products */;
+					ProjectRef = 4F50872D23ACC60E00CC2033 /* ART.xcodeproj */;
+				},
 				{
 					ProductGroup = 4FCD2B8022C8B190007834F6 /* Products */;
 					ProjectRef = FDCEFCD448894E5790BB6940 /* imageCropPicker.xcodeproj */;
@@ -1266,6 +1297,20 @@
 			fileType = archive.ar;
 			path = libLottieReactNative.a;
 			remoteRef = 4F073B0622CF4F3500B31B9C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4F50873323ACC60E00CC2033 /* libART.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libART.a;
+			remoteRef = 4F50873223ACC60E00CC2033 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4F50873523ACC60E00CC2033 /* libART-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libART-tvOS.a";
+			remoteRef = 4F50873423ACC60E00CC2033 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		4FA6753322D7165E00067B62 /* libRCTCameraRoll.a */ = {

@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import {
-    CameraRoll, AsyncStorage, Button
+    CameraRoll, AsyncStorage, Button, TouchableOpacity, ProgressViewIOS, StyleSheet, View
 } from "react-native";
-
-import moment from "moment";
-import ImagePicker from "react-native-image-crop-picker";
+import * as Progress from "react-native-progress";
 import firebase from "react-native-firebase";
 import uuid from "uuid/v4";
+import moment from "moment";
+import ImagePicker from "react-native-image-crop-picker";
+import LottieView from "lottie-react-native";
 import ImageView from "../components/ImageView";
+import colors from "../constants/colors";
 
 const MainScreen = () => {
-    const [imageData, setImageData] = useState([{
-        link:
-            "/private/var/mobile/Containers/Data/Application/B2BB4259-F556-4E8B-8770-129C51D49219/tmp/react-native-image-crop-picker/01206EDC-EC10-448D-AB69-2660C3294A8E.jpg",
-        time: "July 15th 2019"
-    }]);
+    const [imageData, setImageData] = useState([]);
     const [progress, setProgress] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [uploadProgress, setUploadProgress] = useState(0);
     useEffect(() => {
         getData();
     }, []);
@@ -40,37 +39,14 @@ const MainScreen = () => {
             d = new Date();
             newTime = moment(d).format("MMMM Do YYYY, HH:mm a");
             setImageData(
-                [...imageData, { link: image.path, time: newTime }]
+                [...imageData, { link: image.path, time: newTime, uploaded: false }]
             );
             imageData.length === 0 ? null : updateProgress(currentIndex / imageData.length);
         }).catch((e) => {
             alert(e);
         });
     };
-    const uploadImage = () => {
-        const testData = {
-            link:
-                "/private/var/mobile/Containers/Data/Application/B2BB4259-F556-4E8B-8770-129C51D49219/tmp/react-native-image-crop-picker/01206EDC-EC10-448D-AB69-2660C3294A8E.jpg",
-            time: "July 15th 2019"
-        };
-        const ext = testData.link.split(".").pop();
-        const filename = `${uuid()}.${ext}`;
-        firebase
-            .storage()
-            .ref(`tutorials/images/${filename}`)
-            .putFile(testData.link)
-            .on(
-                firebase.storage.TaskEvent.STATE_CHANGED,
-                (snapshot) => {
-                    const percent = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log(`${percent}% done`);
-                },
-                (error) => {
-                    unsubscribe();
-                    alert("Sorry, Try again.", error);
-                }
-            );
-    };
+
     const getData = async () => {
         try {
             const imagesJSON = await AsyncStorage.getItem("imageData");
@@ -90,16 +66,88 @@ const MainScreen = () => {
             console.log(error);
         }
     };
+    const uploadImage = () => {
+        const uploadData = imageData[currentIndex];
+        const ext = uploadData.link.split(".").pop();
+        const filename = `${uuid()}.${ext}`;
+        firebase
+            .storage()
+            .ref(`tutorials/images/${filename}`)
+            .putFile(uploadData.link)
+            .on(
+                firebase.storage.TaskEvent.STATE_CHANGED,
+                (snapshot) => {
+                    const percent = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log(`${percent}% done`);
+                    setUploadProgress(percent);
+                },
+                (error) => {
+                    unsubscribe();
+                    alert("Sorry, Try again.", error);
+                }
+            );
+    };
     return (
         <>
             <ImageView
                 imageData={imageData}
-                openCamera={openCamera}
-                progress={progress}
                 updateProgress={updateProgress}
             />
-            <Button onPress={() => uploadImage()} title="Clear Storage" />
+            <View style={styles.controlsContainer}>
+                <TouchableOpacity activeOpacity={0.8} onPress={() => openCamera()}>
+                    <LottieView
+                        style={styles.icon}
+                        source={require("../assets/cam_shot1.json")}
+                    />
+                </TouchableOpacity>
+                <Progress.Circle progress={uploadProgress} size={50} color={colors.sub} showsText></Progress.Circle>
+                <Button onPress={() => uploadImage()} title="Upload" color={colors.sub} />
+            </View>
+            <ProgressViewIOS
+                progress={progress}
+                progressTintColor={colors.sub}
+                trackTintColor={colors.main}
+                style={styles.progressBar}
+            />
+            <Button onPress={() => clearAsyncStorage()} title="Clear Storage" color={colors.sub} />
         </>
     );
 };
+const styles = StyleSheet.create({
+    buttonCamera: {
+        alignItems: "center",
+        height: 50,
+        justifyContent: "center"
+    },
+    controlsContainer: {
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-around"
+    },
+    icon: { height: 100, width: 100 },
+    imageBackground: {
+        height: "100%",
+        width: "100%"
+    },
+    imageBackgroundTimeContainer: {
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        marginLeft: 10,
+        marginTop: 5
+    },
+    imageBackgroundTimeText: {
+        color: colors.sub,
+        fontSize: 16
+    },
+    itemContainer: {
+        alignItems: "center",
+        height: "100%",
+        justifyContent: "center"
+    },
+    progressBar: {
+        height: 8,
+        transform: [{ scaleX: 1.0 }, { scaleY: 4 }]
+    }
+});
 export default MainScreen;
