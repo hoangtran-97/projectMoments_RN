@@ -22,6 +22,7 @@ const MainScreen = () => {
     };
     const clearAsyncStorage = async () => {
         AsyncStorage.clear();
+        console.log("cleared");
     };
 
     const openCamera = () => {
@@ -33,7 +34,7 @@ const MainScreen = () => {
             await setImageData(
                 [...imageData, { link: image.path, time: newTime }]
             );
-            // updateProgress(currentIndex - 1);
+            currentIndex === 0 ? null : updateProgress(currentIndex - 1);
             storeData();
         }).catch((e) => {
             alert(e);
@@ -67,6 +68,7 @@ const MainScreen = () => {
                 progress={progress}
                 updateProgress={updateProgress}
             />
+            <Button onPress={() => clearAsyncStorage()} title="Clear" />
         </>
     );
 };
