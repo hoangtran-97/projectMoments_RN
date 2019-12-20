@@ -16,6 +16,7 @@ const MainScreen = () => {
     const [progress, setProgress] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [uploadProgress, setUploadProgress] = useState(0);
+    const [onboarding, setOnboarding] = useState(true);
     useEffect(() => {
         getData();
     }, []);
@@ -31,6 +32,7 @@ const MainScreen = () => {
     };
     const clearAsyncStorage = async () => {
         AsyncStorage.clear();
+        setImageData([]);
     };
 
     const openCamera = () => {
@@ -94,13 +96,21 @@ const MainScreen = () => {
                 updateProgress={updateProgress}
             />
             <View style={styles.controlsContainer}>
-                <TouchableOpacity activeOpacity={0.8} onPress={() => openCamera()}>
+                <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={() => {
+                        setOnboarding(false);
+                        console.log(onboarding);
+                        openCamera();
+                    }}
+                >
                     <LottieView
+                        autoPlay={onboarding}
                         style={styles.icon}
-                        source={require("../assets/cam_shot1.json")}
+                        source={require("../assets/cam.json")}
                     />
                 </TouchableOpacity>
-                <Progress.Circle progress={uploadProgress} size={50} color={colors.sub} showsText></Progress.Circle>
+                <Progress.Circle progress={uploadProgress} size={40} color={colors.sub} showsText></Progress.Circle>
                 <Button onPress={() => uploadImage()} title="Upload" color={colors.sub} />
             </View>
             <ProgressViewIOS

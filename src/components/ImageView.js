@@ -7,6 +7,7 @@ import {
     StyleSheet,
 } from "react-native";
 import Carousel from "react-native-snap-carousel";
+import LottieView from "lottie-react-native";
 import colors from "../constants/colors";
 
 const sliderWidth = Dimensions.get("window").width;
@@ -33,16 +34,24 @@ const renderItem = ({ item }) => (
 );
 const ImageView = ({ imageData, updateProgress }) => (
     <>
-        <Carousel
-            data={imageData}
-            itemWidth={sliderWidth}
-            sliderWidth={sliderWidth}
-            removeClippedSubviews
-            layout="default"
-            onSnapToItem={(index) => updateProgress(index)}
-            renderItem={renderItem}
-        />
-
+        {imageData.length === 0 ? (
+            <>
+                <LottieView source={require("../assets/empty.json")} autoPlay style={styles.lottie} />
+                <Text style={styles.lottieText}>It is a bit empty here!</Text>
+                <Text style={styles.lottieText}>Start saving the Moments!</Text>
+            </>
+        )
+            : (
+                <Carousel
+                    data={imageData}
+                    itemWidth={sliderWidth}
+                    sliderWidth={sliderWidth}
+                    removeClippedSubviews
+                    layout="default"
+                    onSnapToItem={(index) => updateProgress(index)}
+                    renderItem={renderItem}
+                />
+            )}
     </>
 );
 const styles = StyleSheet.create({
@@ -59,12 +68,22 @@ const styles = StyleSheet.create({
     },
     imageBackgroundTimeText: {
         color: colors.sub,
-        fontSize: 16
+        fontSize: 16,
+        fontWeight: "700"
     },
     itemContainer: {
         alignItems: "center",
         height: "100%",
         justifyContent: "center"
+    },
+    lottie: {
+
+    },
+    lottieText: {
+        alignSelf: "center",
+        color: colors.sub,
+        fontSize: 16,
+        fontWeight: "700"
     }
 });
 

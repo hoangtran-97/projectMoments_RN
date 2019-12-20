@@ -4,6 +4,8 @@ import colors from "../constants/colors";
 export default StyleSheet.create({
     appContainer: {
         backgroundColor: colors.main,
-        flex: 1
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-end"
     }
 });
