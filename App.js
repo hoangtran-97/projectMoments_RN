@@ -9,7 +9,6 @@ const { app } = firebase.storage();
 
 const App = () => {
     console.disableYellowBox = true;
-    alert(JSON.stringify(app));
     useEffect(() => {
         SplashScreen.hide();
     });

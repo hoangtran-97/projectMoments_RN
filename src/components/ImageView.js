@@ -6,7 +6,8 @@ import {
     ProgressViewIOS,
     ImageBackground,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    AsyncStorage
 } from "react-native";
 import Carousel from "react-native-snap-carousel";
 import LottieView from "lottie-react-native";
@@ -37,7 +38,7 @@ const renderItem = ({ item }) => (
 const ImageView = ({
     imageData, progress, updateProgress, openCamera
 }) => {
-    console.log();
+    console.log(imageData, progress);
     return (
         <>
             <Carousel
