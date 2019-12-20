@@ -31,7 +31,7 @@ module.exports = {
         "require-yield": "off",
         "no-underscore-dangle": "off",
         "react/no-string-refs": "off",
-        "max-len": ["error", { "code": 165 }],
+        "max-len": [1, { "code": 165 }],
         "react/destructuring-assignment": [1, "always", { "ignoreClassFields": true }],
         "react/no-multi-comp": [1, { "ignoreStateless": true }],
         "no-shadow": "off",

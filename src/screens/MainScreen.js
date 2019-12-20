@@ -62,7 +62,8 @@ const MainScreen = () => {
             .on(
                 firebase.storage.TaskEvent.STATE_CHANGED,
                 (snapshot) => {
-
+                    const percent = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log(`${percent}% done`);
                 },
                 (error) => {
                     unsubscribe();
@@ -97,7 +98,7 @@ const MainScreen = () => {
                 progress={progress}
                 updateProgress={updateProgress}
             />
-            <Button onPress={() => uploadImage()} title="Clear" />
+            <Button onPress={() => uploadImage()} title="Clear Storage" />
         </>
     );
 };
