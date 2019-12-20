@@ -33,7 +33,7 @@ const MainScreen = () => {
             await setImageData(
                 [...imageData, { link: image.path, time: newTime }]
             );
-            updateProgress(currentIndex);
+            imageData.length === 0 ? null : updateProgress(currentIndex / imageData.length);
             storeData();
         }).catch((e) => {
             alert(e);
