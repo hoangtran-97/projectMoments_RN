@@ -16,7 +16,7 @@ const MainScreen = () => {
     const [progress, setProgress] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [uploadProgress, setUploadProgress] = useState(0);
-    const [onboarding, setOnboarding] = useState(true);
+    const [onboarding, setOnboarding] = useState(1);
     useEffect(() => {
         getData();
     }, []);
@@ -99,13 +99,13 @@ const MainScreen = () => {
                 <TouchableOpacity
                     activeOpacity={0.8}
                     onPress={() => {
-                        setOnboarding(false);
-                        console.log(onboarding);
+                        setOnboarding(0);
                         openCamera();
                     }}
                 >
                     <LottieView
-                        autoPlay={onboarding}
+                        speed={onboarding}
+                        autoPlay
                         style={styles.icon}
                         source={require("../assets/cam.json")}
                     />
