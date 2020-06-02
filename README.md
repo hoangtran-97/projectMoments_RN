@@ -2,6 +2,8 @@
 
 ## My first ever completed personal programming project.
 
+![](Moment.gif)
+
 Checkout at branch `develop/feature` to see the project before it got redesigned.
 <br />
 Checkout at branch `master` for the new redesigned UI (the 2nd time).
@@ -35,4 +37,3 @@ There are two simple functions:
         <img src="Images/Before.19.07.png">
         New UI
         <img src="Images/After.png">
-        ![](Moment.gif)
