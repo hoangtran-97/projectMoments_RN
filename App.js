@@ -1,12 +1,21 @@
-import React, { Component } from "react";
-import { SafeAreaView, Text } from "react-native";
-import MainScreen from "./App/Screens/MainScreen";
-export default class App extends Component {
-  render() {
+import React, { useEffect } from "react";
+import { SafeAreaView } from "react-native";
+import SplashScreen from "react-native-splash-screen";
+import firebase from "react-native-firebase";
+import MainScreen from "./src/screens/MainScreen";
+import styles from "./src/styles/globalStyles";
+
+const { app } = firebase.storage();
+
+const App = () => {
+    console.disableYellowBox = true;
+    useEffect(() => {
+        SplashScreen.hide();
+    });
     return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <MainScreen />
-      </SafeAreaView>
+        <SafeAreaView style={styles.appContainer}>
+            <MainScreen />
+        </SafeAreaView>
     );
-  }
-}
+};
+export default App;
